@@ -1,0 +1,21 @@
+:root { --bg:#0b1020; --fg:#e9eef7; --muted:#a8b1c7; --primary:#4f7cff; --card:#121936; --border:#263056 }
+* { box-sizing: border-box }
+html, body, #root { height: 100% }
+body { margin: 0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; background: var(--bg); color: var(--fg) }
+a { color: var(--fg) }
+.container { width: 100%; max-width: 1080px; margin: 0 auto; padding: 24px }
+.navbar { position: sticky; top: 0; background: rgba(11,16,32,.8); backdrop-filter: blur(6px); border-bottom: 1px solid var(--border); z-index: 10 }
+.navbar .container { display: flex; align-items: center; justify-content: space-between }
+.navbar a { margin: 0 8px }
+.brand { font-weight: 700 }
+.footer { border-top: 1px solid var(--border) }
+.content { min-height: calc(100vh - 140px) }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px }
+.card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 16px }
+.form { display: grid; gap: 8px; max-width: 720px }
+.form input, .form textarea { width: 100%; padding: 10px 12px; border-radius: 8px; border: 1px solid var(--border); background: #0f1630; color: var(--fg) }
+.form button { background: var(--primary); color: white; border: 0; padding: 10px 14px; border-radius: 8px }
+.admin-layout { display: grid; grid-template-columns: 220px 1fr }
+.admin-sidebar { border-right: 1px solid var(--border); padding: 16px }
+.admin-sidebar nav { display: grid; gap: 6px }
+.error { color: #ff7b7b }
