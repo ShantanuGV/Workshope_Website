@@ -3,5 +3,5 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: './', // important for Vercel or static hosting
+  base: '', // DO NOT use '/', use '' to make all paths relative
 })
