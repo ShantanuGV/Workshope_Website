@@ -1,0 +1,16 @@
+.manage-list {
+  list-style: none;
+  padding: 0;
+}
+
+.manage-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+  border-bottom: 1px solid var(--muted);
+}
+
+.manage-list-buttons button {
+  margin-left: 0.5rem;
+}

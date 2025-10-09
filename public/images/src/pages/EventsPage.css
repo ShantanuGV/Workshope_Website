@@ -1,0 +1,75 @@
+.events-page {
+  max-width: 1200px;
+  margin: 48px auto;
+  padding: 24px;
+}
+
+.page-title {
+  text-align: center;
+  margin-bottom: 48px;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+.events-section {
+  margin-bottom: 48px;
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 32px;
+  color: var(--primary-text-color);
+}
+
+.section-icon {
+  margin-right: 12px;
+  color: var(--primary-color);
+}
+
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 32px;
+}
+
+.event-card {
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+}
+
+.event-card h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: var(--primary-color);
+}
+
+.event-card p {
+  flex-grow: 1;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.event-date {
+  font-weight: 500;
+  color: var(--secondary-text-color);
+  margin-bottom: 20px;
+}
+
+.no-events-message {
+  text-align: center;
+  padding: 48px;
+  background-color: var(--light-bg-color);
+  border-radius: var(--border-radius);
+}
+
+.event-register-btn {
+  align-self: flex-start;
+  margin-top: auto;
+}

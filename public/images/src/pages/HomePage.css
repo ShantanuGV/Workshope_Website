@@ -1,0 +1,121 @@
+.hero-section {
+  height: 100vh; /* full viewport height */
+  width: 100%;
+  background: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1770&q=80') center/cover no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  text-align: center;
+}
+
+.hero-content {
+  max-width: 800px;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  margin-bottom: 32px;
+  opacity: 0.9;
+}
+
+.cta-button {
+  padding: 12px 32px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  border-radius: var(--border-radius);
+  transition: all 0.3s ease;
+}
+
+.features-section {
+  max-width: 1200px;
+  margin: 64px auto;
+  padding: 24px;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--primary-text-color);
+  margin-bottom: 48px;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 32px;
+}
+
+.feature-card {
+  padding: 32px;
+  text-align: left;
+}
+
+.feature-card h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: var(--primary-color);
+}
+
+.feature-card p {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.page-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 64px 24px;
+}
+
+.page-section.alt-section {
+    background-color: var(--light-bg-color);
+}
+
+.section-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.section-text {
+    max-width: 600px;
+    text-align: center;
+}
+
+.section-description {
+    font-size: 1.1rem;
+    margin-bottom: 32px;
+}
+
+.read-more-link {
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.cta-section {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    padding: 80px 24px;
+    text-align: center;
+}
+
+.cta-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.cta-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 32px;
+}

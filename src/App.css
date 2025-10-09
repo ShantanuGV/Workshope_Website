@@ -1,42 +1,176 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+:root {
+  /* Main Accent Colors (Cyan/Teal) */
+  --primary-color: #00FFFF; /* Bright Cyan for buttons, links, active states */
+  --primary-hover-color: #013a3a; /* Slightly darker cyan for hover */
+  --primary-color-light: rgba(0, 255, 255, 0.1); /* Subtle transparent cyan for light fills/highlights */
+
+  /* Text & Contrast */
+  --text-color: #FFFFFF; /* Pure White for main body text */
+  --secondary-color: #B0B0B0; /* Light Gray for secondary/less important text */
+  --white-color: #FFFFFF; /* Used as the main "light" color */
+  
+  /* Backgrounds & Boxes */
+  --background-color: #0A0A10; /* Very dark blue-black for solid containers */
+  --light-background-color: #1A1A22; /* Dark gray-blue for slightly distinct sections */
+  --background-image: url('/assets/images/Tecbg.jpg');
+
+  /* Structural & Effects */
+  --border-color: rgba(0, 255, 255, 0.5); /* Semi-transparent cyan border */
+  --box-shadow: 0 0 15px rgba(0, 255, 255, 0.5); /* Glowing cyan box shadow */
+  --primary-gradient: linear-gradient(135deg, #00FFFF, #008080); /* Cyan to Teal Gradient */
+  
+  /* Layout (Keep existing or adjust as needed) */
+  --header-height: 70px;
+  --border-radius: 4px; /* A sharper radius might suit the tech look */
+}
+
+
+
+html,body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: auto; 
+
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-image: url("/images/Tecbg.jpg");
+  background-size: cover;        
+  background-position: center;   
+  background-repeat: no-repeat; 
+  background-attachment: fixed;  
+  color: var(--text-color);
+
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+}
+
+.hero-section {
+  height: 100vh;
+  width: 100vw;            /* full viewport width */
+  margin: 0;               /* remove any default margin */
+  padding: 0;
+  background: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1770&q=80') center/cover no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
   text-align: center;
+  overflow: hidden; /* In case any child element overflows */
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 0vh;
+  margin: 0;
+  padding: 0;
 }
 
-@keyframes logo-spin {
+.main-content {
+  flex: 1;
+  margin: 0;
+  padding-top: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+/* Animation Utilities */
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.slide-in-up {
+  animation: slideInUp 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInUp {
   from {
-    transform: rotate(0deg);
+    opacity: 0;
+    transform: translateY(20px);
   }
   to {
-    transform: rotate(360deg);
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
+/* Card Style */
 .card {
-  padding: 2em;
+  background: var(--white-color);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  padding: 24px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.read-the-docs {
-  color: #888;
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Button Style */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  color: var(--white-color);
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  background-color: var(--primary-color);
+  border: 1px solid transparent;
+  padding: 12px 24px;
+  font-size: 1rem;
+  border-radius: var(--border-radius);
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background-color: var(--primary-hover-color);
+  text-decoration: none;
+}
+
+.btn-secondary {
+    background-color: var(--secondary-color);
+}
+
+.read-more-link {
+  color: var(--primary-color);
+  font-weight: 600;
+  background-color: transparent;
+}
+
+.read-more-link:hover {
+  background-color: transparent;
+  color: var(--primary-hover-color);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .main-content {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+}
+
+* {
+  box-sizing: border-box;
 }

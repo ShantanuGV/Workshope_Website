@@ -1,11 +1,12 @@
+import './Footer.css';
+
 export function Footer() {
   return (
-    <footer className="footer">
-      <div className="container">
-        <p>© {new Date().getFullYear()} IED Cell. All rights reserved. | Devliped by <a href="https://portfolioaaradhya.netlify.app/">Aaradhya Pathak</a></p>
+    <footer className="app-footer">
+      <div className="footer-container">
+        <p>© {new Date().getFullYear()} All Rights Reserved.</p>
+        <p>Developed by <a href="https://shantanugv.github.io/Websites/" target="_blank" rel="noopener noreferrer">Shantanu Vispute</a></p>
       </div>
     </footer>
-  )
+  );
 }
-
-

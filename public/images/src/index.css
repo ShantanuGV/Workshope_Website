@@ -1,0 +1,86 @@
+/* Import a new font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+:root {
+  /* A vibrant, light, and modern color palette */
+  --bg: #f0f2f5;
+  --fg: #333;
+  --muted: #6c757d;
+  --primary: #007bff;
+  --secondary: #6610f2;
+  --accent: #ff4757;
+  --card: #ffffff;
+  --border: #e9ecef;
+  --shadow: rgba(0, 0, 0, 0.08);
+  
+  /* Multi-color gradient for backgrounds */
+  --gradient-bg: linear-gradient(135deg, #f0f2f5 0%, #e6e9f0 100%);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  font-family: 'Poppins', 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  background-color: var(--bg);
+  background-image: var(--gradient-bg);
+  color: var(--fg);
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+h2 {
+  color: var(--secondary);
+}
+
+.grid {
+  display: grid;
+  gap: 2rem;
+}
+
+.card-item {
+  background: var(--card);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 12px var(--shadow);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px var(--shadow);
+}
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}

@@ -1,0 +1,50 @@
+.upload-page {
+    max-width: 500px;
+    margin: 60px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 16px;
+    text-align: center;
+    background-color: #fafafa;
+  }
+  
+  .upload-page h1 {
+    font-size: 1.6rem;
+    margin-bottom: 16px;
+  }
+  
+  .upload-page form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  
+  .upload-page button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    background: #1976d2;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .upload-page button:disabled {
+    background: gray;
+    cursor: not-allowed;
+  }
+  
+  .upload-page p {
+    margin-top: 10px;
+    font-weight: bold;
+  }
+
+  .stat-card {
+    background-color: #01e1ff8e;
+    padding: 24px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    display: flex;
+    align-items: center;
+    color: white;
+  }
+  

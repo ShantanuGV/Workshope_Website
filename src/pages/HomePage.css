@@ -1,0 +1,369 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+.hero-section {
+  height: 100vh;
+  width: 100vw;           /* full viewport width */
+  margin: 0;
+  padding: 0;
+  background: url('./public/images/TecWorkShop.jpeg') center/cover no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+
+.fade-in{
+  margin: 0;               /* remove any default margin */
+  padding: 0;  
+  align-items: center;
+}
+
+.main-content {
+  padding-top: 0px; /* same height as header */
+}
+
+.hero-content {
+  max-width: 800px;
+}
+
+.hero-title {
+  color: #fff;
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  margin-bottom: 32px;
+  opacity: 0.9;
+  color: var(--primary-color);
+}
+
+.cta-button {
+  padding: 12px 32px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  border-radius: var(--border-radius);
+  transition: all 0.3s ease;
+}
+
+.features-section {
+  width: 100%;             /* full width */
+  padding: 64px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;     /* center children horizontally */
+  justify-content: center; /* optional: center vertically */
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--primary-text-color);
+  margin-bottom: 48px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 32px;
+  justify-items: center;   /* center each card in its grid column */
+}
+
+.feature-card {
+  padding: 32px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid transparent; /* initial border */
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  height: 200px;
+  width: 400px;
+  background-color: #01e1ff8e;
+}
+
+.feature-card:hover {
+  border: 2px solid #00d9ff; /* bright color for hover */
+  transform: translateY(-5px); /* optional lift effect */
+}
+
+.feature-card h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: var(--text-color);
+}
+
+.feature-card p {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.feature-icon {
+  font-size: 50px; /* adjust size */
+  color: var(--primary-color); /* match your theme */
+  margin-bottom: 16px;
+}
+
+
+.page-section {
+  width: 100%;
+  padding: 64px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;   /* center horizontally */
+  justify-content: center; /* center vertically if needed */
+  text-align: center;
+}
+
+.page-section.alt-section {
+    background-color: var(--light-bg-color);
+    flex-direction: column;   /* stack content vertically */
+    align-items: center;      /* center horizontally */
+    justify-content: center;
+}
+
+.section-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 400px; /* total height of the box */
+  width: 100%;
+  overflow: hidden;
+}
+
+.startup-container {
+  display: flex;
+  width: 80%;
+  height: 400px; /* height of the rectangles */
+  
+}
+
+.startup-card {
+  flex: 1;
+  background-color: #212d3b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: flex 0.5s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;   /* rounded edges */
+  border: 3px solid #01e1ff8e; /* white border */
+}
+
+.startup-text {
+  writing-mode: vertical-rl; /* vertical text */
+  transform: rotate(180deg); /* readable top-down */
+  transition: all 0.5s ease;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+}
+
+.startup-info {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.158);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  padding: 20px;
+  text-align: center;
+  transition: opacity 0.5s ease;
+  z-index: 1;
+}
+
+.startup-info .info-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 10px; /* spacing below title */
+}
+
+.startup-info .info-description {
+  font-size: 1rem;
+  line-height: 1.5;
+  max-width: 250px; /* keeps paragraph compact */
+}
+
+.startup-card:hover .startup-info {
+  opacity: 1; /* show info on hover */
+}
+
+
+/* Hover effects */
+.startup-card:hover {
+  flex: 3; /* expand hovered card */
+}
+
+.startup-card:hover .startup-text {
+  writing-mode: horizontal-tb;
+  transform: rotate(0deg); /* horizontal text */
+  color: rgba(255, 255, 255, 0); /* remain faint behind overlay */
+}
+
+/* Siblings shrink automatically */
+.startup-card:not(:hover) {
+  flex: 1;
+}
+
+.section-text {
+    max-width: 600px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.section-description {
+    font-size: 1.1rem;
+    margin-bottom: 32px;
+}
+
+.read-more-link {
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.cta-section {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    padding: 80px 24px;
+    text-align: center;
+}
+
+.cta-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.cta-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 32px;
+}
+
+.page-section .section-content {
+  display: flex;
+  flex-direction: column;   /* stack content vertically */
+  align-items: center;      /* center horizontally */
+  justify-content: center;  /* center vertically */
+  text-align: center;
+}
+
+
+.team-section {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: nowrap;
+  padding: 40px 0;
+  overflow-x: auto; /* if too many members */
+}
+
+.team-card {
+  position: relative;
+  background-color: #f0f0f0;
+  border-radius: 20px;
+  width: 220px;
+  height: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  border: 2px solid #ddd;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+
+/* === Circular Image in the Center === */
+.team-card .circle-image {
+  position: absolute;
+  top: 20px;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  z-index: 2;
+  transition: transform 0.6s ease;
+  border: 3px solid #fff;
+}
+
+.team-card .circle-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+/* === Full Background Image Hidden Initially === */
+.team-card .full-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.team-card .full-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(0); /* Initially completely hidden */
+  transition: transform 0.6s ease;
+}
+
+/* === Member Info === */
+.team-card .member-info {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.team-card .member-info h3 {
+  font-size: 1.2rem;
+  margin: 5px 0;
+}
+
+.team-card .member-info p {
+  font-size: 0.9rem;
+  color: #555;
+  margin: 0;
+}
+
+/* === Hover Effect === */
+.team-card:hover .circle-image {
+  transform: scale(3); /* Circle grows to reveal background */
+}
+
+.team-card:hover .full-image img {
+  transform: scale(1); /* Full image revealed */
+}
+

@@ -1,0 +1,120 @@
+/* Full screen container */
+.home-container {
+  font-family: Arial, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(135deg, #007bff, #00c6ff);
+  width: 100%;
+}
+
+/* Navbar */
+.navbar {
+  padding: 20px 40px;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.2);
+  width: 100%;
+}
+
+/* Buttons in navbar */
+.navbar button {
+  margin-left: 10px;
+  padding: 8px 16px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.navbar button:first-child {
+  margin-left: 0;
+}
+
+.navbar button.login {
+  background: #fff;
+  color: #007bff;
+}
+
+.navbar button.admin {
+  background: #fff;
+  color: #007bff;
+}
+
+/* Content area */
+.content-area {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  width: 100%;
+}
+
+/* Course cards wrapper */
+.courses-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+/* Course card */
+.course-card {
+  flex: 1 1 200px;
+  min-width: 200px;
+  max-width: 250px;
+  padding: 20px;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.course-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Form container */
+.form-container {
+  width: 100%;
+  max-width: 500px;
+  background: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Form inputs */
+.form-container input,
+.form-container textarea {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  width: 100%;
+}
+
+/* Form buttons */
+.form-container button {
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.form-container button.submit-btn {
+  background: #007bff;
+  color: #fff;
+  border: none;
+}
+
+.form-container button.back-btn {
+  background: #fff;
+  color: #007bff;
+  border: 1px solid #007bff;
+}

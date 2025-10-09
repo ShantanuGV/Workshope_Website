@@ -1,0 +1,104 @@
+.vision-mission-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh; /* full viewport height */
+  padding: 100px 24px 24px 24px;
+  box-sizing: border-box;
+}
+
+.page-title {
+  text-align: center;
+  margin-bottom: 48px;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #00ccff; /* primary color */
+}
+
+.card-title{
+  color: rgb(255, 255, 255);
+}
+
+.content-grid {
+  display: flex;             /* use flex for single card */
+  justify-content: center;  /* center horizontally */
+  width: 100%;
+}
+
+.card-item {
+  background: #01e1ff8e;
+  box-shadow: 0 0 15px #00ccff;
+  padding: 22px;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  text-align: center;
+  text-emphasis-color: rgba(0,0,0,0.1);
+  width: 600px;              /* desktop width */
+  max-width: 90%;            /* ensure it shrinks on smaller screens */
+  box-sizing: border-box;
+}
+
+/* Form styling */
+.download-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.download-form input,
+.download-form textarea {
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.download-form textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.download-form button {
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  background-color: #00d9ff;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.download-form button:hover {
+  background-color: #013a3a;
+  transform: translateY(-2px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .card-item {
+    width: 100%;   /* full width on tablets and mobile */
+    padding: 24px;
+  }
+
+  .content-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .page-title {
+    font-size: 2rem;   /* smaller title on mobile */
+    margin-top: 120px; /* leave space for navbar */
+  }
+
+  .download-form input,
+  .download-form textarea {
+    font-size: 0.95rem;
+  }
+}
