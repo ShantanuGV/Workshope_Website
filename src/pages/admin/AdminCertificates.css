@@ -47,4 +47,20 @@
     align-items: center;
     color: white;
   }
+
+  .download-section {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    color: #00ffff;
+  }
+  
+  .download-btn {
+    transition: 0.2s ease;
+  }
+  
+  .download-btn:hover {
+    transform: scale(1.1);
+  }
+  
   
