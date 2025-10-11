@@ -12,15 +12,6 @@ export function AdminCertificates() {
   const [url, setUrl] = useState("");
   const [status, setStatus] = useState("");
 
-  const handleDownloadSheet = () => {
-    const link = document.createElement("a");
-    link.href = SHEET_URL;
-    link.download = "Certificates.xlsx"; // file name
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus("");
@@ -61,7 +52,13 @@ export function AdminCertificates() {
       <div className="download-section" >
         
         <Tooltip title="Download Excel Sheet">
-          <IconButton onClick={handleDownloadSheet} className="download-btn" color="#00ffff">
+          <IconButton
+          component="a"
+          href="https://docs.google.com/spreadsheets/d/17zfCot-FlolQJ6EM80JRtKuQ06sorAOLZgpOwMZJVv8/export?format=xlsx"
+          download="Certificates.xlsx"
+          style={{ color: "#00ffff" }}
+        >
+
             <BsFileEarmarkSpreadsheetFill style={{ color: "#00ffff", fontSize: "28px" }} />
             </IconButton >
             
