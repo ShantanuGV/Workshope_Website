@@ -35,7 +35,7 @@ export function AdminCertificates() {
     const match = downloadUrl.match(/\/d\/([a-zA-Z0-9_-]+)/);
     if (match && match[1]) {
       const fileId = match[1];
-      downloadUrl = `https://drive.google.com/uc?export=download&id=17zfCot-FlolQJ6EM80JRtKuQ06sorAOLZgpOwMZJVv8`;
+      downloadUrl = `https://drive.google.com/uc?export=download&id=${fileId}`;
     }
   
     try {
