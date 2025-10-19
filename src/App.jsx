@@ -3,6 +3,7 @@ import './App.css';
 import { Layout } from './components/Layout/Layout.jsx';
 import { HomePage } from './pages/HomePage.jsx';
 import { VisionMissionPage } from './pages/VisionMissionPage.jsx';
+import { VerifyPage } from './pages/VerifyPage.jsx';
 import { AdminRouter } from './pages/admin/AdminRouter.jsx';
 import { Header } from './components/Layout/Header.jsx'; // Import Header
 import { Footer } from './components/Layout/Footer.jsx'; // Import Footer
@@ -40,6 +41,7 @@ function App() {
               <Route path="/" element={<HomePage />} />
               <Route path="/vision-mission" element={<VisionMissionPage />} />
               <Route path="/loginpage" element={<AdminLoginPage />} />
+              <Route path="/verifypage" element={<VerifyPage />} />
               <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
           </MainLayout>
