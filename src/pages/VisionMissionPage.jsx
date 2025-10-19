@@ -108,7 +108,7 @@ export function VisionMissionPage() {
         // ✅ Generate and draw QR code using Firestore document ID
         // ✅ Generate and draw QR code using Firestore document ID
 const docId = snapshot.docs[0].id;
-const verifyUrl = `localhost:5173/VerifyPage?id=${docId}`; //https://workshopewebsitegcoerc-git-main-rakeshs-projects-cc51fa25.vercel.app/#/vision-mission // change to your domain
+const verifyUrl = `https://workshopewebsitegcoerc-git-main-rakeshs-projects-cc51fa25.vercel.app/#/vision-mission?id=${docId}`; // change to your domain
 
 try {
   // Get QR config from template
