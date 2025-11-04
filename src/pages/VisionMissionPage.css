@@ -216,12 +216,14 @@
 }
 
 .feedback-options {
-  /* vertical stack */
+  display: flex;
+  flex: row;/* vertical stack */
   gap: 6px;
 }
 
 .feedback-options-box {
-  /* vertical stack of options */
+  display: flex;
+  flex: row;/* vertical stack of options */
   gap: 6px;               /* spacing between options */
 }
 
