@@ -217,20 +217,20 @@
 
 .feedback-options {
   display: flex;
-  flex-direction: column; /* stack options vertically */
-  gap: 8px;               /* space between options */
+  flex-direction: column; /* vertical stack */
+  gap: 6px;
 }
 
-.feedback-options label {
-  display: inline-flex;   /* keep radio + text on the same line */
+.option-label {
+  display: inline-flex;      /* circle and text inline */
   align-items: center;
-  gap: 6px;               /* space between circle and text */
+  gap: 6px;                  /* space between circle and text */
   cursor: pointer;
   font-size: 0.95rem;
   color: #222;
 }
 
-.feedback-options input[type="radio"] {
+.option-label input[type="radio"] {
   margin: 0;
-  transform: scale(1.1);
+  transform: scale(1.1);     /* slightly bigger circle */
 }
