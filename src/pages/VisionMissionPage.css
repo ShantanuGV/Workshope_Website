@@ -223,30 +223,21 @@
 
 .feedback-options-box {
   display: flex;
-  flex-direction: column; /* stack items vertically */
-  gap: 8px;               /* spacing between options */
-  margin-left: 4px;       /* optional small padding from question text */
-}
-.feedback-options-box {
-  display: flex;
-  flex-direction: row; /* vertical stack of options */
-  gap: 8px;
-  margin-left: 4px;
+  flex-direction: column; /* vertical stack of options */
+  gap: 6px;               /* spacing between options */
 }
 
 .option-label {
-  display: flex;          /* keep circle and text in one line */
-  align-items: center;    /* vertically center the circle with text */
-  gap: 6px;               /* space between radio circle and text */
+  display: flex;          /* flex row to align circle and text */
+  align-items: center;    /* vertically center the radio circle with text */
+  gap: 8px;               /* space between circle and text */
+  font-size: 1rem;
   cursor: pointer;
-  font-size: 0.95rem;
 }
 
 .option-label input[type="radio"] {
-  margin: 0;
-  transform: scale(1.1);  /* slightly bigger circle */
-}
-
-.option-text {
-  display: inline-block;  /* ensures text stays on same line */
+  margin: 0;             /* remove default spacing */
+  vertical-align: middle; /* ensure alignment with text */
+  accent-color: #007bff;  /* optional: nice color for circle */
+};  /* ensures text stays on same line */
 }
