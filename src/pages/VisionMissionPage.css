@@ -119,19 +119,18 @@
   color: #00ffff;
 }
 
-.feedback-section label {
-  display: block;
-  padding: 6px 10px;
-  
-  border-radius: 8px;
+/* Feedback options stacked vertically (default for all screens) */
+.feedback-question label {
+  display: flex;          /* horizontal alignment inside label */
+  align-items: center;    /* vertically center circle with text */
+  margin-bottom: 0.6rem;  /* spacing between options */
   cursor: pointer;
-  transition: all 0.2s ease;
-  font-weight: 500;
+  font-size: 0.95rem;
+  color: #222;
 }
 
-.feedback-section input[type="radio"] {
-  accent-color: #00ffff;
-  margin-right: 8px;
+.feedback-question input[type="radio"] {
+  margin-right: 8px;      /* space between circle and text */
   transform: scale(1.1);
 }
 
