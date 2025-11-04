@@ -176,12 +176,19 @@
 
 /* Options (Radio Buttons + Labels) */
 .feedback-question label {
-  display: inline-flex;  /* horizontal alignment */
-  align-items: center;   /* vertically center text */
-  margin-right: 1rem;    /* space between options */
+  display: inline-flex;        /* horizontal alignment */
+  align-items: center;         /* vertically center text with radio */
+  gap: 6px;                    /* space between circle and text */
+  margin-right: 1rem;
   cursor: pointer;
   font-size: 0.95rem;
   color: #222;
+  line-height: 1.2;            /* ensure text lines up with radio */
+}
+
+.feedback-question input[type="radio"] {
+  margin: 0;                   /* remove extra margin */
+  transform: scale(1.2);       /* slightly larger for better visibility */
 }
 
 .feedback-question label:hover {
@@ -189,10 +196,6 @@
 }
 
 /* Radio Buttons */
-.feedback-question input[type="radio"] {
-  margin-right: 6px;
-  transform: scale(1.1);
-}
 
 /* === Submit Button Styling === */
 .download-form button {
