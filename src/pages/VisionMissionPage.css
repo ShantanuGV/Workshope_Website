@@ -121,17 +121,17 @@
 
 /* Feedback options stacked vertically (default for all screens) */
 .feedback-question label {
-  display: flex;          /* horizontal alignment inside label */
-  align-items: center;    /* vertically center circle with text */
-  margin-bottom: 0.6rem;  /* spacing between options */
+  display: block;       /* vertical stacking */
+  margin-bottom: 0.6rem;
   cursor: pointer;
   font-size: 0.95rem;
   color: #222;
 }
 
 .feedback-question input[type="radio"] {
-  margin-right: 8px;      /* space between circle and text */
+  margin-right: 8px;    /* circle spacing */
   transform: scale(1.1);
+  vertical-align: middle; /* align circle with text */
 }
 
 .feedback-section label:hover {
