@@ -187,149 +187,81 @@ export function VisionMissionPage() {
   };
 
   return (
-    <section className="vision-mission-page">
-      <h1 className="page-title slide-in-up">Certificate Download</h1>
-      <div className="content-grid">
-        <div className="card card-item slide-in-up">
-          <h2 className="card-title">Enter Your Details</h2>
-          <form onSubmit={handleSubmit} className="download-form">
-            <input
-              type="text"
-              placeholder="Name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              required
-            />
-            <input
-              type="email"
-              placeholder="Email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-{/* ✅ Updated Feedback Section */}
-<div className="feedback-section">
-  <div className="feedback-question">
-    <p>1️⃣ How well did the course help you understand the basic concepts of Java?</p>
-    {["Excellent", "Good", "Average", "Needs Improvement"].map((opt) => (
-      <label key={opt}>
+<section className="vision-mission-page">
+  <h1 className="page-title slide-in-up">Certificate Download</h1>
+  <div className="content-grid">
+    <div className="card card-item slide-in-up">
+      <h2 className="card-title">Enter Your Details</h2>
+      <form onSubmit={handleSubmit} className="download-form">
         <input
-          type="radio"
-          name="q1"
-          value={opt}
-          checked={feedback.q1 === opt}
-          onChange={(e) => handleFeedbackChange("q1", e.target.value)}
+          type="text"
+          placeholder="Name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          required
         />
-        {opt}
-      </label>
-    ))}
-  </div>
-
-  <div className="feedback-question">
-    <p>2️⃣ How effectively did the course explain Object-Oriented Programming concepts?</p>
-    {["Very effectively", "Effectively", "Moderately", "Not effectively"].map((opt) => (
-      <label key={opt}>
         <input
-          type="radio"
-          name="q2"
-          value={opt}
-          checked={feedback.q2 === opt}
-          onChange={(e) => handleFeedbackChange("q2", e.target.value)}
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
         />
-        {opt}
-      </label>
-    ))}
-  </div>
 
-  <div className="feedback-question">
-    <p>3️⃣ Were the practical sessions/lab exercises helpful?</p>
-    {["Strongly Agree", "Agree", "Neutral", "Disagree"].map((opt) => (
-      <label key={opt}>
-        <input
-          type="radio"
-          name="q3"
-          value={opt}
-          checked={feedback.q3 === opt}
-          onChange={(e) => handleFeedbackChange("q3", e.target.value)}
-        />
-        {opt}
-      </label>
-    ))}
-  </div>
-
-  <div className="feedback-question">
-    <p>4️⃣ Do you feel the topics covered are relevant and useful for real-world software development?</p>
-    {["Highly Relevant", "Relevant", "Somewhat Relevant", "Not Relevant"].map((opt) => (
-      <label key={opt}>
-        <input
-          type="radio"
-          name="q4"
-          value={opt}
-          checked={feedback.q4 === opt}
-          onChange={(e) => handleFeedbackChange("q4", e.target.value)}
-        />
-        {opt}
-      </label>
-    ))}
-  </div>
-
-  <div className="feedback-question">
-    <p>5️⃣ Overall, how satisfied are you with your learning experience in the Core Java Programming course?</p>
-    {["Very Satisfied", "Satisfied", "Neutral", "Unsatisfied"].map((opt) => (
-      <label key={opt}>
-        <input
-          type="radio"
-          name="q5"
-          value={opt}
-          checked={feedback.q5 === opt}
-          onChange={(e) => handleFeedbackChange("q5", e.target.value)}
-        />
-        {opt}
-      </label>
-    ))}
-  </div>
-</div>
-
-  <div className="feedback-question">
-    <p>4️⃣ Do you feel the topics covered are relevant and useful for real-world software development?</p>
-    {["Highly Relevant", "Relevant", "Somewhat Relevant", "Not Relevant"].map((opt) => (
-      <label key={opt}>
-        <input
-          type="radio"
-          name="q4"
-          value={opt}
-          checked={feedback.q4 === opt}
-          onChange={(e) => handleFeedbackChange("q4", e.target.value)}
-        />
-        {opt}
-      </label>
-    ))}
-  </div>
-
-  <div className="feedback-question">
-    <p>5️⃣ Overall, how satisfied are you with your learning experience in the Core Java Programming course?</p>
-    {["Very Satisfied", "Satisfied", "Neutral", "Unsatisfied"].map((opt) => (
-      <label key={opt}>
-        <input
-          type="radio"
-          name="q5"
-          value={opt}
-          checked={feedback.q5 === opt}
-          onChange={(e) => handleFeedbackChange("q5", e.target.value)}
-        />
-        {opt}
-      </label>
-    ))}
-  </div>
-</div>
-
-            <button type="submit">Download Certificate</button>
-          </form>
-
-          {error && <p style={{ color: "red", marginTop: "10px" }}>{error}</p>}
-          {status && <p style={{ color: "#00ffff", marginTop: "10px" }}>{status}</p>}
+        {/* Feedback Section */}
+        <div className="feedback-section">
+          {[
+            {
+              q: "q1",
+              text: "1️⃣ How well did the course help you understand the basic concepts of Java?",
+              options: ["Excellent", "Good", "Average", "Needs Improvement"],
+            },
+            {
+              q: "q2",
+              text: "2️⃣ How effectively did the course explain Object-Oriented Programming concepts?",
+              options: ["Very effectively", "Effectively", "Moderately", "Not effectively"],
+            },
+            {
+              q: "q3",
+              text: "3️⃣ Were the practical sessions/lab exercises helpful?",
+              options: ["Strongly Agree", "Agree", "Neutral", "Disagree"],
+            },
+            {
+              q: "q4",
+              text: "4️⃣ Do you feel the topics covered are relevant and useful for real-world software development?",
+              options: ["Highly Relevant", "Relevant", "Somewhat Relevant", "Not Relevant"],
+            },
+            {
+              q: "q5",
+              text: "5️⃣ Overall, how satisfied are you with your learning experience in the Core Java Programming course?",
+              options: ["Very Satisfied", "Satisfied", "Neutral", "Unsatisfied"],
+            },
+          ].map(({ q, text, options }) => (
+            <div key={q} className="feedback-question">
+              <p>{text}</p>
+              {options.map((opt) => (
+                <label key={opt}>
+                  <input
+                    type="radio"
+                    name={q}
+                    value={opt}
+                    checked={feedback[q] === opt}
+                    onChange={(e) => handleFeedbackChange(q, e.target.value)}
+                  />
+                  {opt}
+                </label>
+              ))}
+            </div>
+          ))}
         </div>
-      </div>
-    </section>
+
+        <button type="submit">Download Certificate</button>
+      </form>
+
+      {error && <p style={{ color: "red", marginTop: "10px" }}>{error}</p>}
+      {status && <p style={{ color: "#00ffff", marginTop: "10px" }}>{status}</p>}
+    </div>
+  </div>
+</section>
   );
 }
