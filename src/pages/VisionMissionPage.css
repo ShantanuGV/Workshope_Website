@@ -221,16 +221,22 @@
   gap: 6px;
 }
 
+.feedback-options-box {
+  display: flex;
+  flex-direction: column; /* stack items vertically */
+  gap: 8px;               /* spacing between options */
+  margin-left: 4px;       /* optional small padding from question text */
+}
+
 .option-label {
-  display: inline-flex;      /* circle and text inline */
+  display: flex;
   align-items: center;
-  gap: 6px;                  /* space between circle and text */
+  gap: 6px;             /* space between radio button and text */
   cursor: pointer;
   font-size: 0.95rem;
-  color: #222;
 }
 
 .option-label input[type="radio"] {
   margin: 0;
-  transform: scale(1.1);     /* slightly bigger circle */
+  transform: scale(1.1);  /* slightly bigger circle */
 }
