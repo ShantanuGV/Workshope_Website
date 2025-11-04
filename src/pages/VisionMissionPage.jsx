@@ -198,6 +198,8 @@ export function VisionMissionPage() {
               required
             />
 {/* Feedback Section */}
+{/* Feedback Section */}
+{/* Feedback Section */}
 <div className="feedback-section">
   {[
     {
@@ -238,14 +240,13 @@ export function VisionMissionPage() {
               checked={feedback[q] === opt}
               onChange={(e) => handleFeedbackChange(q, e.target.value)}
             />
-            {opt}
+            <span className="option-text">{opt}</span>
           </label>
         ))}
       </div>
     </div>
   ))}
 </div>
-
             <button type="submit">Download Certificate</button>
           </form>
 
