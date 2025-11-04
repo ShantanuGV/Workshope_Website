@@ -176,9 +176,9 @@
 
 /* Options (Radio Buttons + Labels) */
 .feedback-question label {
-  display: inline-flex; /* horizontal alignment */
-  align-items: center;  /* vertically center radio and text */
-  margin-right: 1.2rem; /* space between options */
+  display: inline-flex;  /* horizontal alignment */
+  align-items: center;   /* vertically center text */
+  margin-right: 1rem;    /* space between options */
   cursor: pointer;
   font-size: 0.95rem;
   color: #222;
@@ -190,9 +190,8 @@
 
 /* Radio Buttons */
 .feedback-question input[type="radio"] {
-  margin-right: 8px;
+  margin-right: 6px;
   transform: scale(1.1);
-  accent-color: #007fff;
 }
 
 /* === Submit Button Styling === */
