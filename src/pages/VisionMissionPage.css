@@ -210,25 +210,27 @@
   gap: 6px;
 }
 
+.feedback-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
 .feedback-options-box {
   display: flex;
-  flex-direction: column; /* stack options vertically */
-  gap: 6px;               /* space between options */
+  flex-direction: column; /* vertical stacking */
+  gap: 8px;
 }
 
 .option-label {
-  display: flex;           /* horizontal layout: circle + text */
-  align-items: center;     /* vertically align circle with text */
-  gap: 8px;                /* space between circle and text */
+  display: flex;
+  align-items: center; /* horizontal alignment of circle + text */
+  gap: 8px;
+  font-size: 16px;
   cursor: pointer;
-  font-size: 1rem;
 }
 
 .option-label input[type="radio"] {
-  margin: 0;               /* remove default browser margin */
-  vertical-align: middle;  /* ensure circle aligns with text */
-}
-
-.option-text {
-  line-height: 1.2;        /* optional: keep text vertically centered with circle */
+  width: 18px;
+  height: 18px;
 }
