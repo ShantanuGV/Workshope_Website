@@ -219,7 +219,7 @@
 /* Feedback options stacked vertically */
 .feedback-options-box {
   display: flex;
-  flex-direction: column; /* one option per row */
+  align-items: center;/* one option per row */
   gap: 0.6rem;            /* consistent spacing between options */
 }
 
