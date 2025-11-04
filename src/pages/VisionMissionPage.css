@@ -123,7 +123,7 @@
 .feedback-section label {
   display: block;
   padding: 6px 10px;
-  margin: 4px 0;
+  
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -198,18 +198,6 @@
 /* Radio Buttons */
 
 /* === Submit Button Styling === */
-.download-form button {
-  background: linear-gradient(90deg, #00ffff, #007fff);
-  border: none;
-  color: #000;
-  padding: 10px 20px;
-  font-size: 1rem;
-  border-radius: 10px;
-  cursor: pointer;
-  margin-top: 1.5rem;
-  transition: all 0.3s ease;
-  font-weight: 600;
-}
 
 .download-form button:hover {
   transform: scale(1.05);
