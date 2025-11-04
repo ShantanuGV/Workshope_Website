@@ -199,53 +199,55 @@ export function VisionMissionPage() {
             />
 
             {/* Feedback Section */}
-            <div className="feedback-section">
-              {[
-                {
-                  q: "q1",
-                  text: "1️⃣ How well did the course help you understand the basic concepts of Java?",
-                  options: ["Excellent", "Good", "Average", "Needs Improvement"],
-                },
-                {
-                  q: "q2",
-                  text: "2️⃣ How effectively did the course explain Object-Oriented Programming concepts?",
-                  options: ["Very effectively", "Effectively", "Moderately", "Not effectively"],
-                },
-                {
-                  q: "q3",
-                  text: "3️⃣ Were the practical sessions/lab exercises helpful?",
-                  options: ["Strongly Agree", "Agree", "Neutral", "Disagree"],
-                },
-                {
-                  q: "q4",
-                  text: "4️⃣ Do you feel the topics covered are relevant and useful for real-world software development?",
-                  options: ["Highly Relevant", "Relevant", "Somewhat Relevant", "Not Relevant"],
-                },
-                {
-                  q: "q5",
-                  text: "5️⃣ Overall, how satisfied are you with your learning experience in the Core Java Programming course?",
-                  options: ["Very Satisfied", "Satisfied", "Neutral", "Unsatisfied"],
-                },
-              ].map(({ q, text, options }) => (
-                <div key={q} className="feedback-question">
-                  <p>{text}</p>
-                  <div className="feedback-options">
-                    {options.map((opt) => (
-                      <label key={opt} className="option-label">
-                        <input
-                          type="radio"
-                          name={q}
-                          value={opt}
-                          checked={feedback[q] === opt}
-                          onChange={(e) => handleFeedbackChange(q, e.target.value)}
-                        />
-                        {opt}
-                      </label>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
+<div className="feedback-section">
+  {[
+    {
+      q: "q1",
+      text: "1️⃣ How well did the course help you understand the basic concepts of Java?",
+      options: ["Excellent", "Good", "Average", "Needs Improvement"],
+    },
+    {
+      q: "q2",
+      text: "2️⃣ How effectively did the course explain Object-Oriented Programming concepts?",
+      options: ["Very effectively", "Effectively", "Moderately", "Not effectively"],
+    },
+    {
+      q: "q3",
+      text: "3️⃣ Were the practical sessions/lab exercises helpful?",
+      options: ["Strongly Agree", "Agree", "Neutral", "Disagree"],
+    },
+    {
+      q: "q4",
+      text: "4️⃣ Do you feel the topics covered are relevant and useful for real-world software development?",
+      options: ["Highly Relevant", "Relevant", "Somewhat Relevant", "Not Relevant"],
+    },
+    {
+      q: "q5",
+      text: "5️⃣ Overall, how satisfied are you with your learning experience in the Core Java Programming course?",
+      options: ["Very Satisfied", "Satisfied", "Neutral", "Unsatisfied"],
+    },
+  ].map(({ q, text, options }) => (
+    <div key={q} className="feedback-question">
+      <p>{text}</p>
+      
+      {/* New box wrapper for vertical flex */}
+      <div className="feedback-options-box">
+        {options.map((opt) => (
+          <label key={opt} className="option-label">
+            <input
+              type="radio"
+              name={q}
+              value={opt}
+              checked={feedback[q] === opt}
+              onChange={(e) => handleFeedbackChange(q, e.target.value)}
+            />
+            {opt}
+          </label>
+        ))}
+      </div>
+    </div>
+  ))}
+</div>
 
             <button type="submit">Download Certificate</button>
           </form>
