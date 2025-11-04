@@ -218,18 +218,18 @@
 
 .feedback-options-box {
   display: flex;
-  flex-direction: column; /* keep each option in its own row */
-  gap: 0.5rem; /* space between options */
+  flex-direction: column; /* one option per row */
+  gap: 0.5rem;            /* spacing between options */
 }
 
 .option-label {
-  display: flex;          /* make input and text a flex row */
-  align-items: center;    /* vertically center input and text */
-  gap: 0.5rem;            /* space between ○ and text */
-  cursor: pointer;        /* nice hover cursor */
-  font-size: 16px;
+  display: flex;          /* horizontal layout for radio + text */
+  align-items: center;    /* vertical center */
+  gap: 0.5rem;            /* space between circle and text */
+  cursor: pointer;        /* makes the label clickable */
 }
+
 .option-label input[type="radio"] {
-  width: 18px;
+  width: 18px;  /* bigger circles if you want */
   height: 18px;
 }
