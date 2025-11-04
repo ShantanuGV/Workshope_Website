@@ -216,8 +216,7 @@
 }
 
 .feedback-options {
-  display: flex;
-  flex-direction: column; /* vertical stack */
+  /* vertical stack */
   gap: 6px;
 }
 
