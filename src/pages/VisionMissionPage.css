@@ -176,15 +176,12 @@
 
 /* Options (Radio Buttons + Labels) */
 .feedback-question label {
-  display: block;
-  text-align: left;
-  margin: 0.3rem 0;
+  display: inline-flex; /* horizontal alignment */
+  align-items: center;  /* vertically center radio and text */
+  margin-right: 1.2rem; /* space between options */
   cursor: pointer;
   font-size: 0.95rem;
   color: #222;
-  transition: background 0.2s ease;
-  border-radius: 6px;
-  padding: 4px 6px;
 }
 
 .feedback-question label:hover {
