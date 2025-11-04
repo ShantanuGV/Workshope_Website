@@ -146,6 +146,54 @@
   padding-top: 0.8rem;
 }
 
+/* === Feedback Section Styling === */
+.feedback-section {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+/* Individual Question Card */
+.feedback-section .question-box {
+  background: #ffffff;
+  color: #000000;
+  border-radius: 12px;
+  padding: 1rem 1.2rem;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.15);
+  text-align: left;
+}
+
+.feedback-section .question-box p {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+  color: #111111;
+}
+
+/* Radio Option Styles */
+.feedback-section label {
+  display: flex;
+  align-items: center;
+  margin: 4px 0;
+  padding: 4px 6px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  font-weight: 500;
+  color: #333333;
+}
+
+.feedback-section label:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.feedback-section input[type="radio"] {
+  margin-right: 8px;
+  accent-color: #007fff;
+  transform: scale(1.1);
+}
+
 /* === Form Button Enhancement === */
 .download-form button {
   background: linear-gradient(90deg, #00ffff, #007fff);
@@ -167,11 +215,11 @@
 
 /* === Responsive Design === */
 @media (max-width: 600px) {
-  .feedback-section {
-    padding: 1rem;
+  .feedback-section .question-box {
+    padding: 0.9rem 1rem;
   }
 
-  .feedback-section p {
+  .feedback-section .question-box p {
     font-size: 0.95rem;
   }
 
