@@ -206,13 +206,13 @@
 
 .feedback-options {
   display: flex;
-  flex: column;/* vertical stack */
+  flex-direction: column;/* vertical stack */
   gap: 6px;
 }
 
 .feedback-options-box {
   display: flex;
-  flex: column;/* vertical stack of options */
+  flex-direction: column;/* vertical stack of options */
   gap: 6px;               /* spacing between options */
 }
 
