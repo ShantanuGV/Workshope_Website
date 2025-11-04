@@ -214,3 +214,23 @@
     margin-right: 10px;     /* space between circle and text */
   }
 }
+
+.feedback-options {
+  display: flex;
+  flex-direction: column; /* stack options vertically */
+  gap: 8px;               /* space between options */
+}
+
+.feedback-options label {
+  display: inline-flex;   /* keep radio + text on the same line */
+  align-items: center;
+  gap: 6px;               /* space between circle and text */
+  cursor: pointer;
+  font-size: 0.95rem;
+  color: #222;
+}
+
+.feedback-options input[type="radio"] {
+  margin: 0;
+  transform: scale(1.1);
+}
