@@ -238,7 +238,7 @@ export function VisionMissionPage() {
               checked={feedback[q] === opt}
               onChange={(e) => handleFeedbackChange(q, e.target.value)}
             />
-            <span className="option-text">{opt}</span>
+            {opt}
           </label>
         ))}
       </div>
