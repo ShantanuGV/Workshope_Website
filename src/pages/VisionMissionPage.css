@@ -229,7 +229,7 @@
 }
 .feedback-options-box {
   display: flex;
-  flex-direction: column; /* vertical stack of options */
+  flex-direction: row; /* vertical stack of options */
   gap: 8px;
   margin-left: 4px;
 }
