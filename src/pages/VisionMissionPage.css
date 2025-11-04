@@ -174,19 +174,18 @@
 
 /* Options (Radio Buttons + Labels) */
 .feedback-question label {
-  display: inline-flex;        /* horizontal alignment */
-  align-items: center;         /* vertically center text with radio */
-  gap: 6px;                    /* space between circle and text */
-  margin-right: 1rem;
+  display: flex;          /* keep radio and text on same line */
+  align-items: center;    /* vertically center circle with text */
+  gap: 8px;               /* spacing between circle and text */
+  margin-bottom: 0.6rem;
   cursor: pointer;
   font-size: 0.95rem;
   color: #222;
-  line-height: 1.2;            /* ensure text lines up with radio */
 }
 
 .feedback-question input[type="radio"] {
-  margin: 0;                   /* remove extra margin */
-  transform: scale(1.2);       /* slightly larger for better visibility */
+  transform: scale(1.1);
+  margin: 0;              /* remove extra margin */
 }
 
 .feedback-question label:hover {
