@@ -10,7 +10,6 @@ export function VisionMissionPage() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
 
-  // Feedback answers stored as object
   const [feedback, setFeedback] = useState({
     q1: "",
     q2: "",
@@ -31,14 +30,12 @@ export function VisionMissionPage() {
     setError("");
     setStatus("");
 
-    // Validate all fields
     if (!name.trim() || !email.trim() || Object.values(feedback).some((f) => !f)) {
       alert("⚠️ Please fill in all fields and feedback options.");
       return;
     }
 
     try {
-      // Check if certificate exists for this email
       const q = query(
         collection(db, "certificates"),
         where("email", "==", email.trim().toLowerCase())
@@ -50,9 +47,8 @@ export function VisionMissionPage() {
       }
 
       const userCertData = snapshot.docs[0].data();
-      const officialName = userCertData.name; // admin-entered name
+      const officialName = userCertData.name;
 
-      // Get template + text box config from Firestore
       const templateDoc = await getDoc(doc(db, "config", "certificateTemplate"));
       if (!templateDoc.exists()) {
         setError("No certificate template found. Contact admin.");
@@ -86,10 +82,8 @@ export function VisionMissionPage() {
         canvas.width = certImage.naturalWidth || certImage.width;
         canvas.height = certImage.naturalHeight || certImage.height;
 
-        // Draw certificate background
         ctx.drawImage(certImage, 0, 0, canvas.width, canvas.height);
 
-        // Draw name text
         ctx.fillStyle = fontColor;
         ctx.font = `bold ${fontSize}px ${fontFamily}, sans-serif`;
         ctx.textAlign = "left";
@@ -119,7 +113,6 @@ export function VisionMissionPage() {
           startY += lineHeight;
         });
 
-        // ✅ Generate and draw QR code
         const docId = snapshot.docs[0].id;
         const verifyUrl = `https://workshopewebsitegcoerc.vercel.app/#/VerifyPage?id=${docId}`;
 
@@ -140,14 +133,12 @@ export function VisionMissionPage() {
           console.error("QR generation failed:", qrError);
         }
 
-        // Trigger download
         const link = document.createElement("a");
         const safeName = officialName.replace(/[^a-z0-9_\- ]/gi, "");
         link.download = `${safeName || "certificate"}_certificate.png`;
         link.href = canvas.toDataURL("image/png");
         link.click();
 
-        // ✅ Send user data to Sheet.best after download
         try {
           const response = await fetch(import.meta.env.VITE_SHEET_BEST_API, {
             method: "POST",
@@ -170,7 +161,6 @@ export function VisionMissionPage() {
           console.error("Error sending data to Sheet.best:", err);
         }
 
-        // Clear form
         setName("");
         setEmail("");
         setFeedback({ q1: "", q2: "", q3: "", q4: "", q5: "" });
@@ -187,81 +177,83 @@ export function VisionMissionPage() {
   };
 
   return (
-<section className="vision-mission-page">
-  <h1 className="page-title slide-in-up">Certificate Download</h1>
-  <div className="content-grid">
-    <div className="card card-item slide-in-up">
-      <h2 className="card-title">Enter Your Details</h2>
-      <form onSubmit={handleSubmit} className="download-form">
-        <input
-          type="text"
-          placeholder="Name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          required
-        />
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
+    <section className="vision-mission-page">
+      <h1 className="page-title slide-in-up">Certificate Download</h1>
+      <div className="content-grid">
+        <div className="card card-item slide-in-up">
+          <h2 className="card-title">Enter Your Details</h2>
+          <form onSubmit={handleSubmit} className="download-form">
+            <input
+              type="text"
+              placeholder="Name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              required
+            />
+            <input
+              type="email"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
 
-        {/* Feedback Section */}
-        <div className="feedback-section">
-          {[
-            {
-              q: "q1",
-              text: "1️⃣ How well did the course help you understand the basic concepts of Java?",
-              options: ["Excellent", "Good", "Average", "Needs Improvement"],
-            },
-            {
-              q: "q2",
-              text: "2️⃣ How effectively did the course explain Object-Oriented Programming concepts?",
-              options: ["Very effectively", "Effectively", "Moderately", "Not effectively"],
-            },
-            {
-              q: "q3",
-              text: "3️⃣ Were the practical sessions/lab exercises helpful?",
-              options: ["Strongly Agree", "Agree", "Neutral", "Disagree"],
-            },
-            {
-              q: "q4",
-              text: "4️⃣ Do you feel the topics covered are relevant and useful for real-world software development?",
-              options: ["Highly Relevant", "Relevant", "Somewhat Relevant", "Not Relevant"],
-            },
-            {
-              q: "q5",
-              text: "5️⃣ Overall, how satisfied are you with your learning experience in the Core Java Programming course?",
-              options: ["Very Satisfied", "Satisfied", "Neutral", "Unsatisfied"],
-            },
-          ].map(({ q, text, options }) => (
-            <div key={q} className="feedback-question">
-              <p>{text}</p>
-              {options.map((opt) => (
-                <label key={opt}>
-                  <input
-                    type="radio"
-                    name={q}
-                    value={opt}
-                    checked={feedback[q] === opt}
-                    onChange={(e) => handleFeedbackChange(q, e.target.value)}
-                  />
-                  {opt}
-                </label>
+            {/* Feedback Section */}
+            <div className="feedback-section">
+              {[
+                {
+                  q: "q1",
+                  text: "1️⃣ How well did the course help you understand the basic concepts of Java?",
+                  options: ["Excellent", "Good", "Average", "Needs Improvement"],
+                },
+                {
+                  q: "q2",
+                  text: "2️⃣ How effectively did the course explain Object-Oriented Programming concepts?",
+                  options: ["Very effectively", "Effectively", "Moderately", "Not effectively"],
+                },
+                {
+                  q: "q3",
+                  text: "3️⃣ Were the practical sessions/lab exercises helpful?",
+                  options: ["Strongly Agree", "Agree", "Neutral", "Disagree"],
+                },
+                {
+                  q: "q4",
+                  text: "4️⃣ Do you feel the topics covered are relevant and useful for real-world software development?",
+                  options: ["Highly Relevant", "Relevant", "Somewhat Relevant", "Not Relevant"],
+                },
+                {
+                  q: "q5",
+                  text: "5️⃣ Overall, how satisfied are you with your learning experience in the Core Java Programming course?",
+                  options: ["Very Satisfied", "Satisfied", "Neutral", "Unsatisfied"],
+                },
+              ].map(({ q, text, options }) => (
+                <div key={q} className="feedback-question">
+                  <p>{text}</p>
+                  <div className="feedback-options">
+                    {options.map((opt) => (
+                      <label key={opt} className="option-label">
+                        <input
+                          type="radio"
+                          name={q}
+                          value={opt}
+                          checked={feedback[q] === opt}
+                          onChange={(e) => handleFeedbackChange(q, e.target.value)}
+                        />
+                        {opt}
+                      </label>
+                    ))}
+                  </div>
+                </div>
               ))}
             </div>
-          ))}
+
+            <button type="submit">Download Certificate</button>
+          </form>
+
+          {error && <p style={{ color: "red", marginTop: "10px" }}>{error}</p>}
+          {status && <p style={{ color: "#00ffff", marginTop: "10px" }}>{status}</p>}
         </div>
-
-        <button type="submit">Download Certificate</button>
-      </form>
-
-      {error && <p style={{ color: "red", marginTop: "10px" }}>{error}</p>}
-      {status && <p style={{ color: "#00ffff", marginTop: "10px" }}>{status}</p>}
-    </div>
-  </div>
-</section>
+      </div>
+    </section>
   );
 }
