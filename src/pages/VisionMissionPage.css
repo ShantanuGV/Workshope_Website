@@ -216,20 +216,30 @@
   gap: 20px;
 }
 
+/* Feedback options stacked vertically */
 .feedback-options-box {
   display: flex;
   flex-direction: column; /* one option per row */
-  gap: 0.5rem;            /* spacing between options */
+  gap: 0.6rem;            /* consistent spacing between options */
 }
 
 .option-label {
-  display: flex;          /* horizontal layout for radio + text */
-  align-items: center;    /* vertical center */
-  gap: 0.5rem;            /* space between circle and text */
-  cursor: pointer;        /* makes the label clickable */
+  display: flex;          /* horizontal layout: radio + text */
+  align-items: center;    /* vertically center radio */
+  gap: 8px;               /* spacing between circle and text */
+  cursor: pointer;        /* clickable label */
+  padding: 2px 4px;       /* small padding for hover effect */
+  border-radius: 6px;     /* rounded corners for hover effect */
+  transition: background 0.2s;
 }
 
 .option-label input[type="radio"] {
-  width: 18px;  /* bigger circles if you want */
+  width: 18px;  /* slightly bigger circles */
   height: 18px;
-  }
+  margin: 0;    /* remove extra margin */
+  transform: scale(1.1);
+}
+
+.option-label:hover {
+  background-color: rgba(0, 255, 255, 0.1);
+}
