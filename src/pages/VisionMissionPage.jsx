@@ -290,6 +290,39 @@ export function VisionMissionPage() {
   </div>
 </div>
 
+  <div className="feedback-question">
+    <p>4️⃣ Do you feel the topics covered are relevant and useful for real-world software development?</p>
+    {["Highly Relevant", "Relevant", "Somewhat Relevant", "Not Relevant"].map((opt) => (
+      <label key={opt}>
+        <input
+          type="radio"
+          name="q4"
+          value={opt}
+          checked={feedback.q4 === opt}
+          onChange={(e) => handleFeedbackChange("q4", e.target.value)}
+        />
+        {opt}
+      </label>
+    ))}
+  </div>
+
+  <div className="feedback-question">
+    <p>5️⃣ Overall, how satisfied are you with your learning experience in the Core Java Programming course?</p>
+    {["Very Satisfied", "Satisfied", "Neutral", "Unsatisfied"].map((opt) => (
+      <label key={opt}>
+        <input
+          type="radio"
+          name="q5"
+          value={opt}
+          checked={feedback.q5 === opt}
+          onChange={(e) => handleFeedbackChange("q5", e.target.value)}
+        />
+        {opt}
+      </label>
+    ))}
+  </div>
+</div>
+
             <button type="submit">Download Certificate</button>
           </form>
 
