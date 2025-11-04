@@ -197,8 +197,7 @@ export function VisionMissionPage() {
               onChange={(e) => setEmail(e.target.value)}
               required
             />
-
-            {/* Feedback Section */}
+{/* Feedback Section */}
 <div className="feedback-section">
   {[
     {
@@ -229,8 +228,6 @@ export function VisionMissionPage() {
   ].map(({ q, text, options }) => (
     <div key={q} className="feedback-question">
       <p>{text}</p>
-      
-      {/* New box wrapper for vertical flex */}
       <div className="feedback-options-box">
         {options.map((opt) => (
           <label key={opt} className="option-label">
@@ -241,7 +238,7 @@ export function VisionMissionPage() {
               checked={feedback[q] === opt}
               onChange={(e) => handleFeedbackChange(q, e.target.value)}
             />
-            {opt}
+            <span className="option-text">{opt}</span>
           </label>
         ))}
       </div>
