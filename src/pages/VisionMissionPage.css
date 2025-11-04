@@ -203,27 +203,16 @@
 
 /* === Responsive Design 
 /* === Mobile View: Stack options vertically === */
-@media (max-width: 600px) {
-  .feedback-question label {
-    display: flex;          /* stack horizontally inside each label */
-    width: 100%;            /* full width for the label */
-    margin-bottom: 0.5rem;  /* spacing between options */
-  }
-
-  .feedback-question input[type="radio"] {
-    margin-right: 10px;     /* space between circle and text */
-  }
-}
 
 .feedback-options {
   display: flex;
-  flex: row;/* vertical stack */
+  flex: column;/* vertical stack */
   gap: 6px;
 }
 
 .feedback-options-box {
   display: flex;
-  flex: row;/* vertical stack of options */
+  flex: column;/* vertical stack of options */
   gap: 6px;               /* spacing between options */
 }
 
