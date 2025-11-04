@@ -216,20 +216,7 @@
   box-shadow: 0 0 10px #00ffff;
 }
 
-/* === Responsive Design === */
-@media (max-width: 600px) {
-  .feedback-question {
-    padding: 0.9rem 1rem;
-  }
-
-  .feedback-question p {
-    font-size: 0.95rem;
-  }
-
-  .feedback-question label {
-    font-size: 0.9rem;
-  }
-}
+/* === Responsive Design 
 /* === Mobile View: Stack options vertically === */
 @media (max-width: 600px) {
   .feedback-question label {
