@@ -230,3 +230,15 @@
     font-size: 0.9rem;
   }
 }
+/* === Mobile View: Stack options vertically === */
+@media (max-width: 600px) {
+  .feedback-question label {
+    display: flex;          /* stack horizontally inside each label */
+    width: 100%;            /* full width for the label */
+    margin-bottom: 0.5rem;  /* spacing between options */
+  }
+
+  .feedback-question input[type="radio"] {
+    margin-right: 10px;     /* space between circle and text */
+  }
+}
