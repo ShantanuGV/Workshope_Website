@@ -9,17 +9,31 @@ import { collection, query, where, getDocs, doc, getDoc } from "firebase/firesto
 export function VisionMissionPage() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [feedback, setFeedback] = useState("");
+  
+  // Feedback answers stored as object
+  const [feedback, setFeedback] = useState({
+    q1: "",
+    q2: "",
+    q3: "",
+    q4: "",
+    q5: "",
+  });
+
   const [error, setError] = useState("");
   const [status, setStatus] = useState("");
+
+  const handleFeedbackChange = (question, value) => {
+    setFeedback((prev) => ({ ...prev, [question]: value }));
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
     setStatus("");
 
-    if (!name.trim() || !email.trim() || !feedback.trim()) {
-      alert("⚠️ Please fill in all fields.");
+    // Validate all fields
+    if (!name.trim() || !email.trim() || Object.values(feedback).some((f) => !f)) {
+      alert("⚠️ Please fill in all fields and feedback options.");
       return;
     }
 
@@ -68,24 +82,24 @@ export function VisionMissionPage() {
       certImage.onload = async () => {
         const canvas = document.createElement("canvas");
         const ctx = canvas.getContext("2d");
-      
+
         canvas.width = certImage.naturalWidth || certImage.width;
         canvas.height = certImage.naturalHeight || certImage.height;
-      
+
         // Draw certificate background
         ctx.drawImage(certImage, 0, 0, canvas.width, canvas.height);
-      
+
         // Draw name text
         ctx.fillStyle = fontColor;
         ctx.font = `bold ${fontSize}px ${fontFamily}, sans-serif`;
         ctx.textAlign = "left";
         ctx.textBaseline = "top";
-      
+
         const boxWidth = textX2 - textX1;
         const words = officialName.split(" ");
         let line = "";
         const lines = [];
-      
+
         words.forEach((word) => {
           const testLine = line + word + " ";
           const metrics = ctx.measureText(testLine);
@@ -97,45 +111,42 @@ export function VisionMissionPage() {
           }
         });
         lines.push(line);
-      
+
         const lineHeight = fontSize * 1.2;
         let startY = textY1;
         lines.forEach((lineText) => {
           ctx.fillText(lineText.trim(), textX1, startY);
           startY += lineHeight;
         });
-      
-        // ✅ Generate and draw QR code using Firestore document ID
-        // ✅ Generate and draw QR code using Firestore document ID
-const docId = snapshot.docs[0].id;
-const verifyUrl = `https://workshopewebsitegcoerc.vercel.app/#/VerifyPage?id=${docId}`; // change to your domain
 
-try {
-  // Get QR config from template
-  const { qrX = canvas.width - 250, qrY = canvas.height - 250, qrSize = 200 } = templateDoc.data();
+        // ✅ Generate and draw QR code
+        const docId = snapshot.docs[0].id;
+        const verifyUrl = `https://workshopewebsitegcoerc.vercel.app/#/VerifyPage?id=${docId}`;
 
-  const qrDataUrl = await QRCode.toDataURL(verifyUrl, { width: qrSize });
-  const qrImage = new Image();
-  qrImage.src = qrDataUrl;
+        try {
+          const { qrX = canvas.width - 250, qrY = canvas.height - 250, qrSize = 200 } = templateDoc.data();
 
-  await new Promise((resolve) => {
-    qrImage.onload = () => {
-      ctx.drawImage(qrImage, qrX, qrY, qrSize, qrSize); // use QR config
-      resolve();
-    };
-  });
-} catch (qrError) {
-  console.error("QR generation failed:", qrError);
-}
+          const qrDataUrl = await QRCode.toDataURL(verifyUrl, { width: qrSize });
+          const qrImage = new Image();
+          qrImage.src = qrDataUrl;
 
-      
+          await new Promise((resolve) => {
+            qrImage.onload = () => {
+              ctx.drawImage(qrImage, qrX, qrY, qrSize, qrSize);
+              resolve();
+            };
+          });
+        } catch (qrError) {
+          console.error("QR generation failed:", qrError);
+        }
+
         // Trigger download
         const link = document.createElement("a");
         const safeName = officialName.replace(/[^a-z0-9_\- ]/gi, "");
         link.download = `${safeName || "certificate"}_certificate.png`;
         link.href = canvas.toDataURL("image/png");
         link.click();
-      
+
         // ✅ Send user data to Sheet.best after download
         try {
           const response = await fetch(import.meta.env.VITE_SHEET_BEST_API, {
@@ -144,10 +155,10 @@ try {
             body: JSON.stringify({
               name: name.trim(),
               email: email.trim(),
-              feedback: feedback.trim(),
+              ...feedback,
             }),
           });
-      
+
           if (response.ok) {
             setStatus("Certificate downloaded & data saved successfully!");
           } else {
@@ -158,13 +169,12 @@ try {
           setStatus("Certificate downloaded but error saving data.");
           console.error("Error sending data to Sheet.best:", err);
         }
-      
+
         // Clear form
         setName("");
         setEmail("");
-        setFeedback("");
+        setFeedback({ q1: "", q2: "", q3: "", q4: "", q5: "" });
       };
-      
 
       certImage.onerror = (err) => {
         console.error("Image load error:", err);
@@ -197,12 +207,80 @@ try {
               onChange={(e) => setEmail(e.target.value)}
               required
             />
-            <textarea
-              placeholder="Feedback"
-              value={feedback}
-              onChange={(e) => setFeedback(e.target.value)}
-              required
-            />
+
+            {/* ✅ Updated Feedback Section */}
+            <div className="feedback-section">
+              <p>1️⃣ How well did the course help you understand the basic concepts of Java?</p>
+              {["Excellent", "Good", "Average", "Needs Improvement"].map((opt) => (
+                <label key={opt}>
+                  <input
+                    type="radio"
+                    name="q1"
+                    value={opt}
+                    checked={feedback.q1 === opt}
+                    onChange={(e) => handleFeedbackChange("q1", e.target.value)}
+                  />{" "}
+                  {opt}
+                </label>
+              ))}
+
+              <p>2️⃣ How effectively did the course explain Object-Oriented Programming concepts?</p>
+              {["Very effectively", "Effectively", "Moderately", "Not effectively"].map((opt) => (
+                <label key={opt}>
+                  <input
+                    type="radio"
+                    name="q2"
+                    value={opt}
+                    checked={feedback.q2 === opt}
+                    onChange={(e) => handleFeedbackChange("q2", e.target.value)}
+                  />{" "}
+                  {opt}
+                </label>
+              ))}
+
+              <p>3️⃣ Were the practical sessions/lab exercises helpful?</p>
+              {["Strongly Agree", "Agree", "Neutral", "Disagree"].map((opt) => (
+                <label key={opt}>
+                  <input
+                    type="radio"
+                    name="q3"
+                    value={opt}
+                    checked={feedback.q3 === opt}
+                    onChange={(e) => handleFeedbackChange("q3", e.target.value)}
+                  />{" "}
+                  {opt}
+                </label>
+              ))}
+
+              <p>4️⃣ Do you feel the topics covered are relevant and useful for real-world software development?</p>
+              {["Highly Relevant", "Relevant", "Somewhat Relevant", "Not Relevant"].map((opt) => (
+                <label key={opt}>
+                  <input
+                    type="radio"
+                    name="q4"
+                    value={opt}
+                    checked={feedback.q4 === opt}
+                    onChange={(e) => handleFeedbackChange("q4", e.target.value)}
+                  />{" "}
+                  {opt}
+                </label>
+              ))}
+
+              <p>5️⃣ Overall, how satisfied are you with your learning experience in the Core Java Programming course?</p>
+              {["Very Satisfied", "Satisfied", "Neutral", "Unsatisfied"].map((opt) => (
+                <label key={opt}>
+                  <input
+                    type="radio"
+                    name="q5"
+                    value={opt}
+                    checked={feedback.q5 === opt}
+                    onChange={(e) => handleFeedbackChange("q5", e.target.value)}
+                  />{" "}
+                  {opt}
+                </label>
+              ))}
+            </div>
+
             <button type="submit">Download Certificate</button>
           </form>
 
