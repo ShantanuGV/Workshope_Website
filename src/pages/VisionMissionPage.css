@@ -116,32 +116,27 @@
   gap: 0.5rem;
 }
 
-/* Individual Option Label - CRITICAL FIX HERE */
+/* Individual Option Label - SIMPLE FIX */
 .option-label {
-  display: inline-flex;  /* Changed from flex to inline-flex */
-  align-items: center;   /* Keeps radio and text aligned vertically */
-  gap: 10px;            /* Space between radio and text */
+  display: block;        /* Block display */
   cursor: pointer;
   padding: 8px 10px;
   border-radius: 6px;
   transition: background 0.2s;
   font-size: 0.95rem;
   color: #222;
-  line-height: 1.4;
-  margin: 0;            /* Remove any default margin */
+  margin: 0;
 }
 
-/* Radio Button - CRITICAL FIX HERE */
+/* Radio Button - INLINE WITH TEXT */
 .option-label input[type="radio"] {
-  width: 18px;
-  height: 18px;
-  margin: 0;
+  width: 16px;
+  height: 16px;
+  margin: 0 8px 0 0;    /* Only right margin for spacing */
   padding: 0;
-  flex-shrink: 0;       /* Prevent shrinking */
   cursor: pointer;
-  vertical-align: middle; /* Ensure proper alignment */
-  position: relative;   /* Ensure it's not absolutely positioned */
-  top: 0;              /* Reset any top positioning */
+  vertical-align: middle; /* This keeps it aligned with text */
+  display: inline;       /* Inline display */
 }
 
 .option-label:hover {
