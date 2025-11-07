@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 100vh; /* full viewport height */
+  min-height: 100vh;
   padding: 100px 24px 24px 24px;
   box-sizing: border-box;
 }
@@ -13,16 +13,16 @@
   margin-bottom: 48px;
   font-size: 2.5rem;
   font-weight: 700;
-  color: #00ccff; /* primary color */
+  color: #00ccff;
 }
 
-.card-title {
+.card-title{
   color: rgb(255, 255, 255);
 }
 
 .content-grid {
-  display: flex; /* use flex for single card */
-  justify-content: center; /* center horizontally */
+  display: flex;
+  justify-content: center;
   width: 100%;
 }
 
@@ -31,14 +31,13 @@
   box-shadow: 0 0 15px #00ccff;
   padding: 22px;
   border-radius: 12px;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
   text-align: center;
-  width: 600px; /* desktop width */
-  max-width: 90%; /* ensure it shrinks on smaller screens */
+  width: 600px;
+  max-width: 90%;
   box-sizing: border-box;
 }
 
-/* === Form Styling === */
+/* Form styling */
 .download-form {
   display: flex;
   flex-direction: column;
@@ -74,11 +73,77 @@
 
 .download-form button:hover {
   background-color: #013a3a;
-  transform: scale(1.05);
+  transform: translateY(-2px);
   box-shadow: 0 0 10px #00ffff;
 }
 
-/* === Responsive adjustments === */
+/* === Feedback Section Styling === */
+.feedback-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+/* Individual Question Box */
+.feedback-question {
+  background: #ffffff;
+  color: #000000;
+  padding: 1rem 1.2rem;
+  border-radius: 12px;
+  width: 100%;
+  text-align: left;
+  box-sizing: border-box;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Question Text */
+.feedback-question p {
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+  color: #111;
+  font-size: 1rem;
+}
+
+/* Options Container - Stack vertically on mobile, horizontal on desktop */
+.feedback-options-box {
+  display: flex;
+  flex-direction: column;  /* Stack vertically by default (mobile-first) */
+  gap: 0.5rem;
+}
+
+/* Individual Option Label */
+.option-label {
+  display: flex;
+  align-items: center;  /* Vertically center radio with text */
+  gap: 8px;            /* Space between radio and text */
+  cursor: pointer;
+  padding: 6px 8px;
+  border-radius: 6px;
+  transition: background 0.2s;
+  font-size: 0.95rem;
+  color: #222;
+}
+
+.option-label input[type="radio"] {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  flex-shrink: 0;  /* Prevent radio button from shrinking */
+  cursor: pointer;
+}
+
+.option-text {
+  flex: 1;  /* Allow text to take remaining space */
+  line-height: 1.4;
+}
+
+.option-label:hover {
+  background-color: rgba(0, 255, 255, 0.1);
+}
+
+/* Responsive adjustments */
 @media (max-width: 992px) {
   .card-item {
     width: 100%;
@@ -101,80 +166,22 @@
   .download-form textarea {
     font-size: 0.95rem;
   }
+  
+  .option-label {
+    font-size: 0.9rem;
+  }
 }
 
-/* === FEEDBACK SECTION === */
-
-.feedback-section {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  margin-top: 1.5rem;
-  width: 100%;
+/* Desktop: Optional horizontal layout for options (uncomment if desired) */
+/*
+@media (min-width: 768px) {
+  .feedback-options-box {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  
+  .option-label {
+    flex: 0 0 auto;
+  }
 }
-
-/* Each Question Box */
-.feedback-question {
-  background: #ffffff;
-  color: #000000;
-  padding: 1.2rem 1.4rem;
-  border-radius: 12px;
-  width: 100%;
-  box-sizing: border-box;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-}
-
-/* Question Text */
-.feedback-question p {
-  font-weight: 600;
-  margin-bottom: 0.8rem;
-  color: #111;
-}
-
-/* === Feedback Options === */
-.feedback-options-box {
-  display: flex;
-  flex-direction: column; /* stacked vertically */
-  gap: 0.5rem;
-}
-
-/* Each Option (radio + text) */
-.option-label {
-  display: flex;
-  align-items: center;  /* vertically center radio + text */
-  gap: 10px;
-  cursor: pointer;
-  font-size: 0.95rem;
-  color: #222;
-  padding: 4px 6px;
-  border-radius: 6px;
-  transition: background 0.2s ease;
-}
-
-.option-label:hover {
-  background-color: rgba(0, 255, 255, 0.1);
-}
-
-/* Radio buttons */
-.option-label input[type="radio"] {
-  appearance: none;
-  width: 18px;
-  height: 18px;
-  border: 2px solid #00cccc;
-  border-radius: 50%;
-  outline: none;
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: all 0.2s ease;
-}
-
-.option-label input[type="radio"]:checked {
-  background-color: #00cccc;
-  box-shadow: 0 0 5px #00ffff;
-}
-
-.option-text {
-  user-select: none;
-}
-
+*/
