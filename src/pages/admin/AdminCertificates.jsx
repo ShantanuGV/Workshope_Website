@@ -26,26 +26,28 @@ export function AdminCertificates() {
 
   const [status, setStatus] = useState("");
 
-  // Load existing template config
+  // 🔁 Load config (reusable function)
+  const loadConfig = async () => {
+    const docRef = doc(db, "config", "certificateTemplate");
+    const docSnap = await getDoc(docRef);
+    if (docSnap.exists()) {
+      const data = docSnap.data();
+      setTemplateUrl(data.templateUrl || "");
+      setTextX1(data.textX1 || 0);
+      setTextY1(data.textY1 || 0);
+      setTextX2(data.textX2 || 0);
+      setTextY2(data.textY2 || 0);
+      setFontSize(data.fontSize || 32);
+      setFontFamily(data.fontFamily || "Poppins");
+      setFontColor(data.fontColor || "#000000");
+      setQrX(data.qrX || 50);
+      setQrY(data.qrY || 50);
+      setQrSize(data.qrSize || 100);
+    }
+  };
+
+  // Load existing template config on mount
   useEffect(() => {
-    const loadConfig = async () => {
-      const docRef = doc(db, "config", "certificateTemplate");
-      const docSnap = await getDoc(docRef);
-      if (docSnap.exists()) {
-        const data = docSnap.data();
-        setTemplateUrl(data.templateUrl || "");
-        setTextX1(data.textX1 || 0);
-        setTextY1(data.textY1 || 0);
-        setTextX2(data.textX2 || 0);
-        setTextY2(data.textY2 || 0);
-        setFontSize(data.fontSize || 32);
-        setFontFamily(data.fontFamily || "Poppins");
-        setFontColor(data.fontColor || "#000000");
-        setQrX(data.qrX || 50);
-        setQrY(data.qrY || 50);
-        setQrSize(data.qrSize || 100);
-      }
-    };
     loadConfig();
   }, []);
 
@@ -73,6 +75,8 @@ export function AdminCertificates() {
         updatedAt: new Date(),
       });
       setStatus("✅ Template + QR settings saved!");
+      // 🔄 Auto-reload latest config
+      await loadConfig();
     } catch (err) {
       console.error(err);
       setStatus("❌ Error saving template: " + err.message);
@@ -112,7 +116,9 @@ export function AdminCertificates() {
             download="Certificates.xlsx"
             style={{ color: "#00ffff" }}
           >
-            <BsFileEarmarkSpreadsheetFill style={{ color: "#00ffff", fontSize: "28px" }} />
+            <BsFileEarmarkSpreadsheetFill
+              style={{ color: "#00ffff", fontSize: "28px" }}
+            />
           </IconButton>
         </Tooltip>
         <p style={{ display: "inline", marginLeft: "8px", color: "#00ffff" }}>
@@ -168,8 +174,16 @@ export function AdminCertificates() {
               <label>
                 Top-Left X,Y:
                 <div className="input-row">
-                  <input type="number" value={textX1} onChange={(e) => setTextX1(e.target.value)} />
-                  <input type="number" value={textY1} onChange={(e) => setTextY1(e.target.value)} />
+                  <input
+                    type="number"
+                    value={textX1}
+                    onChange={(e) => setTextX1(e.target.value)}
+                  />
+                  <input
+                    type="number"
+                    value={textY1}
+                    onChange={(e) => setTextY1(e.target.value)}
+                  />
                 </div>
               </label>
             </div>
@@ -178,8 +192,16 @@ export function AdminCertificates() {
               <label>
                 Bottom-Right X,Y:
                 <div className="input-row">
-                  <input type="number" value={textX2} onChange={(e) => setTextX2(e.target.value)} />
-                  <input type="number" value={textY2} onChange={(e) => setTextY2(e.target.value)} />
+                  <input
+                    type="number"
+                    value={textX2}
+                    onChange={(e) => setTextX2(e.target.value)}
+                  />
+                  <input
+                    type="number"
+                    value={textY2}
+                    onChange={(e) => setTextY2(e.target.value)}
+                  />
                 </div>
               </label>
             </div>
@@ -190,14 +212,21 @@ export function AdminCertificates() {
             <div className="font-option">
               <label>
                 Font Size:
-                <input type="number" value={fontSize} onChange={(e) => setFontSize(e.target.value)} />
+                <input
+                  type="number"
+                  value={fontSize}
+                  onChange={(e) => setFontSize(e.target.value)}
+                />
               </label>
             </div>
 
             <div className="font-option">
               <label>
                 Font Family:
-                <select value={fontFamily} onChange={(e) => setFontFamily(e.target.value)}>
+                <select
+                  value={fontFamily}
+                  onChange={(e) => setFontFamily(e.target.value)}
+                >
                   <option value="Poppins">Poppins</option>
                   <option value="Arial">Arial</option>
                   <option value="Verdana">Verdana</option>
@@ -209,7 +238,11 @@ export function AdminCertificates() {
             <div className="font-option">
               <label>
                 Font Color:
-                <input type="color" value={fontColor} onChange={(e) => setFontColor(e.target.value)} />
+                <input
+                  type="color"
+                  value={fontColor}
+                  onChange={(e) => setFontColor(e.target.value)}
+                />
               </label>
             </div>
           </div>
@@ -220,19 +253,31 @@ export function AdminCertificates() {
             <div className="qr-option">
               <label>
                 QR X Position:
-                <input type="number" value={qrX} onChange={(e) => setQrX(e.target.value)} />
+                <input
+                  type="number"
+                  value={qrX}
+                  onChange={(e) => setQrX(e.target.value)}
+                />
               </label>
             </div>
             <div className="qr-option">
               <label>
                 QR Y Position:
-                <input type="number" value={qrY} onChange={(e) => setQrY(e.target.value)} />
+                <input
+                  type="number"
+                  value={qrY}
+                  onChange={(e) => setQrY(e.target.value)}
+                />
               </label>
             </div>
             <div className="qr-option">
               <label>
                 QR Size (px):
-                <input type="number" value={qrSize} onChange={(e) => setQrSize(e.target.value)} />
+                <input
+                  type="number"
+                  value={qrSize}
+                  onChange={(e) => setQrSize(e.target.value)}
+                />
               </label>
             </div>
           </div>
@@ -246,12 +291,15 @@ export function AdminCertificates() {
         <ul>
           <li>Paste a public image URL (PNG/JPG) as the certificate template.</li>
           <li>Set text area coordinates and font settings.</li>
-          <li>Adjust QR position (X,Y) and size to match your template layout.</li>
-          <li>Save all — these settings will apply globally for all generated certificates.</li>
+          <li>
+            Adjust QR position (X,Y) and size to match your template layout.
+          </li>
+          <li>
+            Save all — these settings will apply globally for all generated
+            certificates.
+          </li>
         </ul>
       </div>
-
-      
     </div>
   );
 }
