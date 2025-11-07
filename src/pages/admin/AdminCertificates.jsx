@@ -46,7 +46,6 @@ export function AdminCertificates() {
     }
   };
 
-  // Load existing template config on mount
   useEffect(() => {
     loadConfig();
   }, []);
@@ -62,20 +61,19 @@ export function AdminCertificates() {
     try {
       await setDoc(doc(db, "config", "certificateTemplate"), {
         templateUrl: templateUrl.trim(),
-        textX1: Number(textX1),
-        textY1: Number(textY1),
-        textX2: Number(textX2),
-        textY2: Number(textY2),
-        fontSize: Number(fontSize),
+        textX1,
+        textY1,
+        textX2,
+        textY2,
+        fontSize,
         fontFamily,
         fontColor,
-        qrX: Number(qrX),
-        qrY: Number(qrY),
-        qrSize: Number(qrSize),
+        qrX,
+        qrY,
+        qrSize,
         updatedAt: new Date(),
       });
       setStatus("✅ Template + QR settings saved!");
-      // 🔄 Auto-reload latest config
       await loadConfig();
     } catch (err) {
       console.error(err);
@@ -177,12 +175,12 @@ export function AdminCertificates() {
                   <input
                     type="number"
                     value={textX1}
-                    onChange={(e) => setTextX1(e.target.value)}
+                    onChange={(e) => setTextX1(Number(e.target.value))}
                   />
                   <input
                     type="number"
                     value={textY1}
-                    onChange={(e) => setTextY1(e.target.value)}
+                    onChange={(e) => setTextY1(Number(e.target.value))}
                   />
                 </div>
               </label>
@@ -195,12 +193,12 @@ export function AdminCertificates() {
                   <input
                     type="number"
                     value={textX2}
-                    onChange={(e) => setTextX2(e.target.value)}
+                    onChange={(e) => setTextX2(Number(e.target.value))}
                   />
                   <input
                     type="number"
                     value={textY2}
-                    onChange={(e) => setTextY2(e.target.value)}
+                    onChange={(e) => setTextY2(Number(e.target.value))}
                   />
                 </div>
               </label>
@@ -215,7 +213,7 @@ export function AdminCertificates() {
                 <input
                   type="number"
                   value={fontSize}
-                  onChange={(e) => setFontSize(e.target.value)}
+                  onChange={(e) => setFontSize(Number(e.target.value))}
                 />
               </label>
             </div>
@@ -256,7 +254,7 @@ export function AdminCertificates() {
                 <input
                   type="number"
                   value={qrX}
-                  onChange={(e) => setQrX(e.target.value)}
+                  onChange={(e) => setQrX(Number(e.target.value))}
                 />
               </label>
             </div>
@@ -266,7 +264,7 @@ export function AdminCertificates() {
                 <input
                   type="number"
                   value={qrY}
-                  onChange={(e) => setQrY(e.target.value)}
+                  onChange={(e) => setQrY(Number(e.target.value))}
                 />
               </label>
             </div>
@@ -276,7 +274,7 @@ export function AdminCertificates() {
                 <input
                   type="number"
                   value={qrSize}
-                  onChange={(e) => setQrSize(e.target.value)}
+                  onChange={(e) => setQrSize(Number(e.target.value))}
                 />
               </label>
             </div>
