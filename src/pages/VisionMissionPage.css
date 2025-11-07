@@ -103,91 +103,78 @@
   }
 }
 
-/* === Feedback Section Styling === */
+/* === FEEDBACK SECTION === */
+
 .feedback-section {
   display: flex;
   flex-direction: column;
-  gap: 1.2rem;
-  width: 100%;
+  gap: 1.5rem;
   margin-top: 1.5rem;
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.05);
-  box-shadow: 0 0 10px rgba(0, 255, 255, 0.1);
-  color: #e0e0e0;
-  font-family: 'Poppins', sans-serif;
+  width: 100%;
 }
 
-/* Individual Question Box */
+/* Each Question Box */
 .feedback-question {
   background: #ffffff;
   color: #000000;
-  padding: 1rem 1.2rem;
+  padding: 1.2rem 1.4rem;
   border-radius: 12px;
   width: 100%;
-  text-align: left;
   box-sizing: border-box;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 /* Question Text */
 .feedback-question p {
-  font-weight: 500;
-  margin-bottom: 8px;
+  font-weight: 600;
+  margin-bottom: 0.8rem;
   color: #111;
 }
 
-/* Layout for all options of a question */
+/* === Feedback Options === */
 .feedback-options-box {
   display: flex;
-  flex-direction: column; /* stack options vertically */
-  align-items: flex-start;
-  gap: 6px; /* spacing between options */
+  flex-direction: column; /* stacked vertically */
+  gap: 0.5rem;
 }
 
-/* Label that wraps radio + text */
+/* Each Option (radio + text) */
 .option-label {
   display: flex;
-  align-items: center; /* keeps radio and text in line */
-  gap: 10px; /* space between circle and text */
+  align-items: center;  /* vertically center radio + text */
+  gap: 10px;
   cursor: pointer;
   font-size: 0.95rem;
-  color: #111;
-  background: rgba(0, 255, 255, 0.05);
-  padding: 6px 10px;
-  border-radius: 8px;
+  color: #222;
+  padding: 4px 6px;
+  border-radius: 6px;
   transition: background 0.2s ease;
 }
 
-/* Radio button itself */
+.option-label:hover {
+  background-color: rgba(0, 255, 255, 0.1);
+}
+
+/* Radio buttons */
 .option-label input[type="radio"] {
-  appearance: none; /* remove default browser style */
+  appearance: none;
   width: 18px;
   height: 18px;
-  border: 2px solid #00ffff;
+  border: 2px solid #00cccc;
   border-radius: 50%;
-  position: relative;
+  outline: none;
   cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: all 0.2s ease;
 }
 
-/* Inner filled dot when selected */
-.option-label input[type="radio"]:checked::before {
-  content: "";
-  position: absolute;
-  top: 3px;
-  left: 3px;
-  width: 8px;
-  height: 8px;
-  background: #00ffff;
-  border-radius: 50%;
+.option-label input[type="radio"]:checked {
+  background-color: #00cccc;
+  box-shadow: 0 0 5px #00ffff;
 }
 
-/* Hover effect */
-.option-label:hover {
-  background: rgba(0, 255, 255, 0.15);
-}
-
-/* Optional: make text look aligned and clean */
 .option-text {
-  line-height: 1;
+  user-select: none;
 }
 
