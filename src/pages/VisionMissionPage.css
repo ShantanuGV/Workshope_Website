@@ -16,7 +16,7 @@
   color: #00ccff;
 }
 
-.card-title{
+.card-title {
   color: rgb(255, 255, 255);
 }
 
@@ -45,7 +45,8 @@
   margin-top: 20px;
 }
 
-.download-form input,
+.download-form input[type="text"],
+.download-form input[type="email"],
 .download-form textarea {
   padding: 10px 15px;
   border-radius: 8px;
@@ -77,7 +78,7 @@
   box-shadow: 0 0 10px #00ffff;
 }
 
-/* === Feedback Section Styling === */
+/* === FEEDBACK SECTION - FIXED === */
 .feedback-section {
   display: flex;
   flex-direction: column;
@@ -98,45 +99,49 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Question Text */
-.feedback-question p {
+/* Question Text - FIXED */
+.question-text {
   font-weight: 600;
-  margin-bottom: 0.8rem;
+  margin: 0 0 0.8rem 0;
+  padding: 0;
   color: #111;
   font-size: 1rem;
+  line-height: 1.5;
 }
 
-/* Options Container - Stack vertically on mobile, horizontal on desktop */
+/* Options Container - Stack vertically */
 .feedback-options-box {
   display: flex;
-  flex-direction: column;  /* Stack vertically by default (mobile-first) */
+  flex-direction: column;
   gap: 0.5rem;
 }
 
-/* Individual Option Label */
+/* Individual Option Label - CRITICAL FIX HERE */
 .option-label {
-  display: flex;
-  align-items: center;  /* Vertically center radio with text */
-  gap: 8px;            /* Space between radio and text */
+  display: inline-flex;  /* Changed from flex to inline-flex */
+  align-items: center;   /* Keeps radio and text aligned vertically */
+  gap: 10px;            /* Space between radio and text */
   cursor: pointer;
-  padding: 6px 8px;
+  padding: 8px 10px;
   border-radius: 6px;
   transition: background 0.2s;
   font-size: 0.95rem;
   color: #222;
+  line-height: 1.4;
+  margin: 0;            /* Remove any default margin */
 }
 
+/* Radio Button - CRITICAL FIX HERE */
 .option-label input[type="radio"] {
   width: 18px;
   height: 18px;
   margin: 0;
-  flex-shrink: 0;  /* Prevent radio button from shrinking */
+  padding: 0;
+  flex-shrink: 0;       /* Prevent shrinking */
   cursor: pointer;
-}
-
-.option-text {
-  flex: 1;  /* Allow text to take remaining space */
-  line-height: 1.4;
+  vertical-align: middle; /* Ensure proper alignment */
+  position: relative;   /* Ensure it's not absolutely positioned */
+  top: 0;              /* Reset any top positioning */
 }
 
 .option-label:hover {
@@ -162,26 +167,14 @@
     margin-top: 120px;
   }
 
-  .download-form input,
+  .download-form input[type="text"],
+  .download-form input[type="email"],
   .download-form textarea {
     font-size: 0.95rem;
   }
   
   .option-label {
     font-size: 0.9rem;
+    padding: 6px 8px;
   }
 }
-
-/* Desktop: Optional horizontal layout for options (uncomment if desired) */
-/*
-@media (min-width: 768px) {
-  .feedback-options-box {
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-  
-  .option-label {
-    flex: 0 0 auto;
-  }
-}
-*/
