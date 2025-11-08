@@ -229,7 +229,7 @@ export function AdminCertificates() {
                   <option value="Arial">Arial</option>
                   <option value="Verdana">Verdana</option>
                   <option value="Times New Roman">Times New Roman</option>
-                  <option value="Libre Baskervill">Libre Baskerville</option>
+                  <option value="Libre Baskerville">Libre Baskerville</option>
                 </select>
               </label>
             </div>
