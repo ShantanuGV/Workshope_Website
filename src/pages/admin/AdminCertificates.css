@@ -8,6 +8,8 @@
   background-color: #fafafa;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap');
+
 .upload-page h1 {
   font-size: 1.6rem;
   margin-bottom: 16px;
