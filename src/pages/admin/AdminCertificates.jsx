@@ -7,6 +7,8 @@ import Tooltip from "@mui/material/Tooltip";
 import { BsFileEarmarkSpreadsheetFill } from "react-icons/bs";
 import "./AdminCertificates.css";
 
+import "@fontsource/libre-baskerville";
+
 export function AdminCertificates() {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
